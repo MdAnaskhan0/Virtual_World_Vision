@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import logo from '../assets/logo.png';
 import { navItems } from '../Constants/Constants';
 import { FaBars } from 'react-icons/fa';
 import { ImCross } from 'react-icons/im';
+import { FaSquarespace } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 const NavBar = () => {
     const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
@@ -17,10 +18,10 @@ const NavBar = () => {
                 <div className="container px-4 mx-auto relative text-sm">
                     <div className="flex justify-between items-center">
                         {/* Logo and Branding */}
-                        <div className="flex items-center flex-shrink-0">
-                            <img className="w-10 mr-2" src={logo} alt="logo" />
+                        <Link to='/' className="flex items-center flex-shrink-0">
+                            <FaSquarespace className='w-10 h-10 pr-3' />
                             <span className="text-xl tracking-tight">VirtualWorld</span>
-                        </div>
+                        </Link>
 
                         {/* Desktop Menu */}
                         <ul className="hidden lg:flex ml-14 space-x-12 pt-2">
@@ -35,12 +36,12 @@ const NavBar = () => {
 
                         {/* Desktop Actions */}
                         <div className="hidden lg:flex justify-center space-x-12 items-center">
-                            <a className="py-2 px-3 border rounded-md" href="#">
+                            <Link to='/logIn' className="py-2 px-3 border rounded-md">
                                 Sign In
-                            </a>
-                            <a className="py-2 px-3 border rounded-md bg-gradient-to-r from-orange-500 to-orange-800" href="#">
+                            </Link>
+                            <Link className="py-2 px-3 border rounded-md bg-gradient-to-r from-orange-500 to-orange-800" to='/register'>
                                 Create an account
-                            </a>
+                            </Link>
                         </div>
 
                         {/* Mobile Menu Button */}

@@ -1,14 +1,24 @@
 import React from 'react'
-import NavBar from './Components/NavBar'
-import Hero from './Components/Hero'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Home from './Pages/Home'
+import SignUp from './Pages/Signup'
+import LogIn from './Pages/Login'
+import PageNotFound from './Pages/PageNotFound'
+
 
 const App = () => {
   return (
     <>
-      <NavBar />
-      <div className="max-w-7xl mx-auto pt-20 px-6">
-        <Hero />
-      </div>
+      <BrowserRouter>
+        <Routes>
+          <Route index element={<Home />} />
+          <Route path='/home' element={<Home />} />
+          <Route path='/' element={<Home />} />
+          <Route path='/register' element={<SignUp />} />
+          <Route path='/login' element={<LogIn />} />
+          <Route path='*' element={<PageNotFound />} />
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }
